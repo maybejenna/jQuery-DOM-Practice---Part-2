@@ -40,7 +40,7 @@ li {
     margin: 2%; 
 }
 
-.movie-card{
+.movie-card {
     font-size: 20px;
     padding: 10px;
     list-style-type: none;
@@ -51,25 +51,24 @@ li {
     color: white;
     height: 300px; 
     width: 200px;
-    min-height: 100px;
-
-    justify-content: center; 
-    align-items: center; 
+    position: relative;
+    display: flex; /* Added for Flexbox */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
     text-align: center;
 }
 
 .movie-content{
-    background: rgba(0, 0, 0, 0.65);
-    width: 180px;
-    height: 280px;
-    max-width: 90%;
-    max-height: 90%;
-    position: fixed; 
-    justify-content: center; 
-    align-items: center; 
+    background: rgba(0, 0, 0, 0.5);
+    width: 100%; /* Fill the area */
+    height: 100%; /* Fill the area */
+    position: absolute; /* Position relative to .movie-card */
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    margin-top: 1.4em;
-    margin-left: 0.3em; 
 }
 
 .removebtn {
@@ -85,25 +84,45 @@ button:hover {
     font-weight: bold;
 }
 
-.card-front {
-
-    position:relative;
+.card-front, .card-back {
+    position: absolute;
+    width: 100%; /* Match parent's width */
+    height: 100%; /* Match parent's height */
     backface-visibility: hidden;
-    justify-content: center; 
-    align-items: center; 
+    display: flex; /* Apply Flexbox */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
     text-align: center;
     transition: transform 0.6s;
-    font-size: 30px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column; /* Arrange items in a column */
+    justify-content: space-between;
+}
+
+.card-front button, .card-back button {
+    position: absolute;
+    bottom: 10px; /* Position at the bottom with 10px offset */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Adjust for center alignment */
+    /* Additional button styling... */
+}
+
+.card-front {
+    /* Additional styles for card-front */
+    font-size: 35px;
 }
 
 .card-back {
+    /* Additional styles for card-back */
     transform: rotateY(180deg);
-    backface-visibility: hidden;
-    position:relative;
-    justify-content: center; 
-    align-items: center; 
-    text-align: center;
-    transition: transform 0.6s;
+}
+
+#comment {
+    margin-top: 50px;
+    padding-top: 10px ;
 }
 
 /* When the card is flipped */
