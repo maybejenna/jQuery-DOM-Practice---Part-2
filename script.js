@@ -1,6 +1,6 @@
 function saveMoviesList() {
     const moviesListHtml = $('#movies-list').html();
-    // localStorage.setItem('moviesList', moviesListHtml);
+    localStorage.setItem('moviesList', moviesListHtml);
 }
 
 function getStarRating(rating) {
@@ -48,7 +48,7 @@ $(document).ready(function() {
         $('#rating').val('');
         $('#poster-url').val('');
         
-        // saveMoviesList();
+        saveMoviesList();
     });
 
     $('#movies-list').on('click', '.commentButton', function() {
@@ -62,10 +62,10 @@ $(document).ready(function() {
 
     $('#movies-list').on('click', '.removebtn', function() {
         $(this).closest('.movie-card').remove();
-        // saveMoviesList();
+        saveMoviesList();
     });
 
-    // if (localStorage.getItem('moviesList')) {
-    //     $('#movies-list').html(localStorage.getItem('moviesList'));
-    // }
+    if (localStorage.getItem('moviesList')) {
+        $('#movies-list').html(localStorage.getItem('moviesList'));
+    }
 });
